@@ -19,8 +19,10 @@ export const Info = styled.Text`
 export const Footer = styled.View`
   height: 100px;
   background-color: #333;
-  justify-content: center;
+  flex-direction: row;
+  justify-content: space-between;
   align-items: center;
+  padding: 20px;
 `;
 export const Btn = styled.TouchableOpacity`
   height: 72px;
@@ -30,18 +32,21 @@ export const Btn = styled.TouchableOpacity`
   align-items: center;
   border-radius: 36px;
 `;
-
-export const Link = styled.TouchableOpacity`
-  height: 40px;
-  width: 170px;
-  background: purple;
-  justify-content: center;
-  align-items: center;
-  border-radius: 8px;
-  margin-top: 20px;
+export const BtnTxt = styled.Text`
+  font-size: 16px;
+  color: #333;
 `;
 
-export const BtnLink = styled.Text`
-  font-size: 16px;
-  color: #fff;
+export const BtnBack = styled.TouchableOpacity`
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+`;
+
+export const ViewFake = styled.View`
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
 `;

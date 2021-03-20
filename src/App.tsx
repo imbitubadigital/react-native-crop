@@ -1,14 +1,16 @@
 import React from 'react';
-
+import {NavigationContainer} from '@react-navigation/native';
 import {View} from 'react-native';
 
-import Home from './page/Home';
+import Routes from './routes';
 
 const App: React.FC = () => {
   return (
-    <View style={{flex: 1, justifyContent: 'center'}}>
-      <Home />
-    </View>
+    <NavigationContainer>
+      <View style={{flex: 1, justifyContent: 'center'}}>
+        <Routes />
+      </View>
+    </NavigationContainer>
   );
 };
 
