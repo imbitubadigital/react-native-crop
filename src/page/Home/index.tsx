@@ -1,5 +1,6 @@
 import React, {useCallback, useState} from 'react';
 import ImagePicker from 'react-native-image-crop-picker';
+import Icon from 'react-native-vector-icons/MaterialIcons';
 import * as S from './styles';
 
 const Home: React.FC = () => {
@@ -34,7 +35,7 @@ const Home: React.FC = () => {
       </S.Container>
       <S.Footer>
         <S.Btn onPress={takePhoto}>
-          <S.BtnTxt>Take</S.BtnTxt>
+          <Icon name="camera-alt" size={40} />
         </S.Btn>
       </S.Footer>
     </>
