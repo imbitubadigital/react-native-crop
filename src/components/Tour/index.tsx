@@ -1,5 +1,6 @@
 import React, {ReactNode, useEffect, useState} from 'react';
 import Tooltip from 'react-native-walkthrough-tooltip';
+import {useTour} from '../../hooks/Tour';
 import * as Animatable from 'react-native-animatable';
 import * as S from './styles';
 
@@ -8,24 +9,27 @@ const ContentBox = Animatable.createAnimatableComponent(S.Box);
 interface TourProps {
   children: ReactNode;
   order: number;
-  current: number;
+  title: string;
   position: 'top' | 'bottom' | 'left' | 'right';
   next: (currentOrder: number) => void;
-  // prev: () => void;
+  prev: (currentOrder: number) => void;
 }
 
 export default function Tour({
   children,
   order,
-  current,
   position,
+  title,
   next,
+  prev,
 }: TourProps) {
   const [isVisible, setIsVisible] = useState(true);
+  const {currentTour, setCurrentTour} = useTour();
 
   useEffect(() => {
-    setIsVisible(order === current);
-  }, [current, order]);
+    console.log('aaa', {order, currentTour});
+    setIsVisible(order === currentTour);
+  }, [currentTour, order]);
   return (
     <S.Container>
       <Tooltip
@@ -38,12 +42,12 @@ export default function Tour({
             iterationCount={1}
             duration={1200}
             useNativeDriver={true}>
-            <S.Info>Aqui um texto mais informativo {current}</S.Info>
+            <S.Info>{title}</S.Info>
             <S.Actions>
-              <S.Btn onPress={() => setIsVisible(false)}>
+              <S.Btn onPress={() => setCurrentTour(0)}>
                 <S.BtnTxt>Fechar</S.BtnTxt>
               </S.Btn>
-              <S.Btn>
+              <S.Btn onPress={() => prev(order)}>
                 <S.BtnTxt>Ant.</S.BtnTxt>
               </S.Btn>
               <S.Btn onPress={() => next(order)}>

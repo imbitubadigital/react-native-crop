@@ -2,10 +2,14 @@ import React, {useCallback, useState} from 'react';
 import ImagePicker from 'react-native-image-crop-picker';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import {useNavigation} from '@react-navigation/native';
+import Tour from '../../components/Tour';
+import {useTour} from '../../hooks/Tour';
+import {MessagesTour} from '../../utils/messagesTour';
 import * as S from './styles';
 
 const Camera: React.FC = () => {
   const navigation = useNavigation();
+  const {currentTour, setCurrentTour} = useTour();
   const [photo, setPhoto] = useState('');
   const takePhoto = useCallback(() => {
     ImagePicker.openCamera({
@@ -26,6 +30,22 @@ const Camera: React.FC = () => {
       });
   }, []);
 
+  console.log('currentTourcurrentTour', currentTour);
+
+  function next(currentOrdem: number) {
+    if (currentOrdem === 6) {
+      setCurrentTour(0);
+    }
+    setCurrentTour(currentOrdem + 1);
+  }
+
+  function prev(currentOrdem: number) {
+    setCurrentTour(currentOrdem - 1);
+    if (currentOrdem === 5) {
+      navigation.navigate('Home');
+    }
+  }
+
   return (
     <>
       <S.Container>
@@ -36,12 +56,27 @@ const Camera: React.FC = () => {
         )}
       </S.Container>
       <S.Footer>
-        <S.BtnBack onPress={() => navigation.navigate('Home')}>
-          <Icon name="arrow-back-ios" color="#fff" size={40} />
-        </S.BtnBack>
-        <S.Btn onPress={takePhoto}>
-          <Icon name="camera-alt" size={40} />
-        </S.Btn>
+        <Tour
+          order={5}
+          position="top"
+          next={next}
+          prev={prev}
+          title={MessagesTour[5]}>
+          <S.BtnBack onPress={() => navigation.navigate('Home')}>
+            <Icon name="arrow-back-ios" color="#fff" size={40} />
+          </S.BtnBack>
+        </Tour>
+
+        <Tour
+          order={6}
+          position="top"
+          next={next}
+          prev={prev}
+          title={MessagesTour[6]}>
+          <S.Btn onPress={takePhoto}>
+            <Icon name="camera-alt" size={40} />
+          </S.Btn>
+        </Tour>
         <S.ViewFake />
       </S.Footer>
     </>
