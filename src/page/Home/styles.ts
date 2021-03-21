@@ -5,10 +5,10 @@ export const Container = styled.View`
   justify-content: center;
   align-items: center;
 `;
-
-export const Img = styled.Image`
-  width: 300px;
-  height: 300px;
+export const Content = styled.View`
+  flex: 1;
+  justify-content: center;
+  align-items: center;
 `;
 
 export const Info = styled.Text`
@@ -19,7 +19,10 @@ export const Info = styled.Text`
 export const Footer = styled.View`
   height: 100px;
   background-color: #333;
-  justify-content: center;
+
+  width: 100%;
+  flex-direction: row;
+  justify-content: space-evenly;
   align-items: center;
 `;
 export const Btn = styled.TouchableOpacity`
