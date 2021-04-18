@@ -8,6 +8,7 @@ export const Container = styled.SafeAreaView`
   align-items: center;
   margin-top: ${Platform.OS === 'android' ? StatusBar.currentHeight : 0}px;
   background: #ffff;
+  padding: 20px;
 `;
 
 export const Txt = styled.Text``;

@@ -1,11 +1,14 @@
 import React from 'react';
+import {useState} from 'react';
 import {StatusBar} from 'react-native';
 
 import * as S from './styles';
+import {DatePicker} from '../../components/DatePicker';
 
 //import {} from './interfaces';
 
-export function DatePiker() {
+export function PageForm() {
+  const [date, setDate] = useState(new Date());
   return (
     <>
       <StatusBar
@@ -14,7 +17,11 @@ export function DatePiker() {
         barStyle="light-content"
       />
       <S.Container>
-        <S.Txt>{StatusBar.currentHeight}</S.Txt>
+        <DatePicker
+          initialDate={date}
+          setInitialDate={setDate}
+          placeholder="Data de nascimento"
+        />
       </S.Container>
     </>
   );

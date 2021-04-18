@@ -1,7 +1,7 @@
 import {createStackNavigator} from '@react-navigation/stack';
 import React from 'react';
 import Home from '../page/Home';
-import {DatePiker} from '../page/Datepicker';
+import {PageForm} from '../page/PageForm';
 
 const App = createStackNavigator();
 
@@ -16,8 +16,8 @@ const AppRoutes: React.FC = () => {
         },
       }}>
       <App.Screen
-        name="DatePiker"
-        component={DatePiker}
+        name="PageForm"
+        component={PageForm}
         options={{
           cardStyle: {
             backgroundColor: '#318FBA',
