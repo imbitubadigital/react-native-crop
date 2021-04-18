@@ -27,7 +27,6 @@ export default function Tour({
   const {currentTour, setCurrentTour} = useTour();
 
   useEffect(() => {
-    console.log('aaa', {order, currentTour});
     setIsVisible(order === currentTour);
   }, [currentTour, order]);
   return (

@@ -1,7 +1,7 @@
 import {createStackNavigator} from '@react-navigation/stack';
 import React from 'react';
 import Home from '../page/Home';
-import Camera from '../page/Camera';
+import {DatePiker} from '../page/Datepicker';
 
 const App = createStackNavigator();
 
@@ -15,8 +15,17 @@ const AppRoutes: React.FC = () => {
           backgroundColor: '#fff',
         },
       }}>
+      <App.Screen
+        name="DatePiker"
+        component={DatePiker}
+        options={{
+          cardStyle: {
+            backgroundColor: '#318FBA',
+          },
+        }}
+      />
       <App.Screen name="Home" component={Home} />
-      <App.Screen name="Camera" component={Camera} />
+      {/* <App.Screen name="Camera" component={Camera} /> */}
     </App.Navigator>
   );
 };
