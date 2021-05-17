@@ -9,6 +9,7 @@ import {DatePicker} from '../../components/DatePicker';
 
 export function PageForm() {
   const [date, setDate] = useState(new Date());
+
   return (
     <>
       <StatusBar
