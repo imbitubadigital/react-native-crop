@@ -7,6 +7,7 @@ export function CustomBaseModal({
   isVisible,
   animationType = 'slide',
   presentationStyle = 'overFullScreen',
+  statusTranslucent = false,
   ...rest
 }: PropsModal) {
   return (
@@ -15,6 +16,7 @@ export function CustomBaseModal({
       animationType={animationType}
       transparent
       presentationStyle={presentationStyle}
+      statusBarTranslucent={statusTranslucent}
       {...rest}>
       {children}
     </Modal>
