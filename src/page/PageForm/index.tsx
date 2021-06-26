@@ -143,7 +143,7 @@ export function PageForm() {
           )}
           <S.Divider />
           {/* <Checkbox value={check} onChange={handleCheckbox} /> */}
-
+          {/* // 210611035624 */}
           <Controller
             name="terms"
             control={control}

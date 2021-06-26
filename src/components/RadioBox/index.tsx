@@ -12,7 +12,9 @@ export function RadioBox({
 }: PropsCheckBox) {
   return (
     <S.Container onPress={() => onChange(value)}>
-      <S.Box isChecked={selected == value} />
+      <S.Box isChecked={selected === value}>
+        <S.BoxCenter isChecked={selected === value} />
+      </S.Box>
       <S.Txt>{title}</S.Txt>
     </S.Container>
   );
